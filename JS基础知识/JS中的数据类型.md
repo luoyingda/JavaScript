@@ -21,3 +21,29 @@ NaN和任何值（包括自己）都不相等：NaN!=NaN,所以我们不能用�
 ### 把其他类型值转换为字符串
 - [val].toString()
 - 字符串拼接
+
+## boolean布尔数据类型值
+> 只有两个值 true/false
+
+### 把其他类性值转换为布尔类型
+> 只有 0、NaN、' '、null、undefined五个值转换为FALSE，其余都转换为TRUE（而且没有任何特殊的情况）
+
+- Boolean([val])
+- !/!!
+- 条件判断
+
+## null/undefined
+> null和undefined都代表的是没有
+
+- null：意料之中（一般都是开始不知道值，我们手动先设置为null，后期再给予赋值操作）
+```
+let num = null; //=> let num = 0;一般最好用null作为初始的空值，因为零不是空值，它在栈内存中有自己的存储空间（占了位置）
+...
+num = 12;
+```
+- undefined：意料之外（不是我能决定的）
+```
+let num; //=>创建一个变量没有赋值，默认值是undefined
+...
+num = 12；
+```

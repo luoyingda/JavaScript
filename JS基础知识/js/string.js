@@ -27,3 +27,5 @@ let b = 10 + null + true + [] + undefined + '珠峰' + null + [] + 10 + false;
  * '11undefined珠峰null10false'
  */
 console.log(b);
+
+/* 2021年7月11日记录 */
