@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id='numInp'>
+    <button class="btn" id="submit">点击</button>
+    <script>
+        let numInp = document.getElementById('numInp'),
+            submit = document.getElementById('submit');
+
+        submit.onclick = function () {
+            let inpValue = numInp.value;
+            inpValue = Number(inpValue);
+            if (!isNaN(inpValue)) {
+                if (inpValue === 0) {
+                    console.log('零');
+                } else if (inpValue > 0) {
+                    console.log('正数');
+                } else {
+                    console.log('负数');
+                }
+            } else {
+                console.log('当前输入的信息为非有效数字！');
+            }
+        }
+    </script>
+</body>
+
+</html>
