@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素对象的深层理解（堆栈）</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 2px solid lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    
+        let box =document.getElementById('box');
+        box.style.backgroundColor='red';
+        // let AA=box.style;
+        // AA.backgroundColor='green';
+        // let BB=box.style.backgroundColor;
+        // BB='green';
+        //上面两种修改颜色的方法哪个可以哪个不可以？ 可以为什么不可以为什么？
+        
+        // => 通过方法获取的元素是对象数据类型的值
+        //console.log(typeof box); //=> 'object'
+
+        //=>基于dir可以看到一个对象的详细信息
+        /*
+         *  id:操作元素的ID值
+         *  className:操作元素的CLASS样式类的值
+         *  innerHtml：操作的元素的内容（可以识别标签）
+         *  innerText:和innerHtml的区别是不能识别标签
+         *  tagName：获取元素的标签名（一般大写）
+         *  style：操作元素的行内样式  属性值是一个新的对象（CSSStyleDeclaraction）
+         */
+        console.dir(box);
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            box-sizing: border-box;
+            width: 900px;
+            height: 600px;
+            margin: 25px auto;
+        }
+        .parBox{
+            display: flex;
+            cursor: pointer;
+            border-bottom-color: #FFF;
+        }
+        .parBox li{
+            box-sizing: border-box;
+            width: 100px;
+            height: 50px;
+            border: 1px solid red;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            list-style: none;
+            margin-left: 20px;
+            z-index: 999;
+        }
+        .parBox li.firstBox{
+            border-bottom-color: white;
+        }
+        .parBox .firstBox {
+            margin-left: 0;
+        }
+
+        .detBox {
+            box-sizing: border-box;
+            width: 600px;
+            height: 300px;
+            border: 1px solid red;
+            position: absolute;
+            top: 74px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <ul id="parBox" class="parBox">
+            <li class="firstBox">学习</li>
+            <li>吃饭</li>
+            <li>上网</li>
+        </ul>
+        <div id='detBox' class="detBox">这里用JS怎么添加内容？</div>
+    </div>
+    <script>
+        //想要操作谁就像获取谁
+        let box = document.getElementById('box'),
+            parBox = document.getElementById('parBox'),
+            list = document.getElementsByTagName('li'),
+            detBox=document.getElementById('detBox');
+        // console.log(list);
+        // console.dir(detBox)
+        //给li绑定点击事件
+        list[0].onclick = function () {
+            // console.log('成功绑定事件');
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- IMPORT CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #newsBox {
+            box-sizing: border-box;
+            margin: 20px auto;
+            padding: 20px;
+            width: 300px;
+            border: 2px solid lightblue;
+        }
+
+        #newsBox li {
+            line-height: 50px;
+            text-align: center;
+            border-bottom: 1px dashed lightcoral;
+        }
+
+        #newsBox li:nth-last-child(1) {
+            border-bottom: none;
+        }
+
+        /* 基于CSS实现 */
+        /*  #newsBox li:nth-child(even){
+            background: lightblue;
+        }
+        #newsBox li:hover {
+            background: lightgreen;
+        } */
+    </style>
+</head>
+
+<body>
+    <ul id="newsBox">
+        <li>我是第1个LI</li>
+        <li>我是第2个LI</li>
+        <li>我是第3个LI</li>
+        <li>我是第4个LI</li>
+        <li>我是第5个LI</li>
+    </ul>
+    <!-- IMPORT JS -->
+    <script>
+        /*  */
+        // [context].document.getElementsByTagName([tagName])在指定的context范围之内，通过标签名获取一组元素（元素集合 HTMLCollection）=> 集合和数组很相似，也是以数字索引作为属性名，有length属性存储长度，但是不是数组，属于“类数组”
+        // let newsBox = document.getElementById('newsBox');
+        // let newsList = document.getElementsByTagName('li');
+        // // console.dir(newsList);
+        // //1.实现隔行变色
+        // for (let index = 0; index < newsList.length; index++) {
+        //     let currentLi = newsList[index];
+        //     // index%2 取余数
+        //     /* if (index % 2 === 0) {
+        //         currentLi.style.backgroundColor='#FFF';
+        //     }else{
+        //         currentLi.style.backgroundColor='red';
+        //     } */
+        //     currentLi.style.backgroundColor = index % 2 === 0 ? '#FFF' : '#DDD';
+        //     //2.循环给每一个LI绑定mouseover/mouseout事件
+        //     currentLi.onmouseover = function () {
+        //         //this：当前操作的这个Li
+        //         this.style.backgroundColor = 'lightblue';
+        //     }
+        //     currentLi.onmouseout = function () {
+        //         //思考题：如何在离开的时候知道原来的颜色?
+        //         this.style.backgroundColor = '#FFF';
+        //     }
+        // }
+
+        //思考题：如何在离开的时候知道原来的颜色? 解决方法
+        let newsBox = document.getElementById('newsBox');
+        let newsList = document.getElementsByTagName('li');
+        //创建变量存储原来的颜色
+        let col = null;
+        for (let index = 0; index < newsList.length; index++) {
+            let currentLi = newsList[index];
+            currentLi.style.backgroundColor = index % 2 === 0 ? '#FFF' : '#DDD';
+            currentLi.onmouseover = function () {
+                this.style.backgroundColor = 'lightblue';
+            }
+            currentLi.onmouseout = function () {
+                
+                this.style.backgroundColor = '#FFF';
+            }
+        }
+    </script>
+</body>
+
+</html>
