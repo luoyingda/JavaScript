@@ -12,7 +12,47 @@
             padding: 0;
         }
 
-        .box {
+        #tabBox {
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 500px;
+        }
+
+        #navBox {
+            /* 只要把容器设置为FLEX弹性盒子容器，那么容器中的子元素排列在容器主轴（X轴）水平靠左排列 */
+            display: flex;
+            position: relative;
+            top: 1px;
+
+        }
+
+        #navBox li {
+            box-sizing: border-box;
+            margin-right: 10px;
+            padding: 0 10px;
+            line-height: 35px;
+            border: 1px solid #999;
+            list-style: none;
+            cursor: pointer;
+        }
+
+        #navBox>li.active {
+            border-bottom-color: #FFF;
+        }
+
+        #tabBox>div {
+            display: none;
+            box-sizing: border-box;
+            padding: 10px;
+            height: 150px;
+            border: 1px solid #999;
+        }
+
+        #tabBox>div.active {
+            display: block;
+        }
+
+        /* .box {
             box-sizing: border-box;
             width: 900px;
             height: 600px;
@@ -49,21 +89,36 @@
             border: 1px solid red;
             position: absolute;
             top: 74px;
+            display: none;
         }
+        .active{
+            display: block;
+        } */
     </style>
 </head>
 
 <body>
-    <div id="box" class="box">
-        <ul id="parBox" class="parBox">
-            <li class="firstBox">学习</li>
+    <div id="tabBox">
+        <ul id="navBox">
+            <li class="active">学习</li>
             <li>吃饭</li>
             <li>上网</li>
         </ul>
+        <div class="active">这里用JS怎么添加内容？1</div>
+        <div>这里用JS怎么添加内容？2</div>
+        <div>这里用JS怎么添加内容？3</div>
+        <!--自己写的不太好  <div id="box" class="box">
+        <ul id="parBox" class="parBox">
+            <li class="firstBox active">学习</li>
+            <li>吃饭</li>
+            <li>上网</li>
+        </ul>
+        <div id='detBox' class="detBox active">这里用JS怎么添加内容？</div>
         <div id='detBox' class="detBox">这里用JS怎么添加内容？</div>
+        <div id='detBox' class="detBox">这里用JS怎么添加内容？</div>-->
     </div>
     <script>
-        //想要操作谁就像获取谁
+        /* 自己写的不太好  //想要操作谁就像获取谁
         let box = document.getElementById('box'),
             parBox = document.getElementById('parBox'),
             list = document.getElementsByTagName('li'),
@@ -74,6 +129,46 @@
         list[0].onclick = function () {
             // console.log('成功绑定事件');
 
+        } */
+        var tabBox = document.getElementById('tabBox');
+        var tabList = tabBox.getElementsByTagName('div');
+        var navBox = document.getElementById('navBox');
+        var navList = navBox.getElementsByTagName('li');
+        //循环绑定点击事件
+        /* 
+         *   这里面存在一个坑：执行changeTab方法中传递的实参i不是我们想要的“点击这个LI的索引”。
+         *   原因是：只有JS代码加载完成才能看到页面，只有看到页面用户才能点击。
+         *   绑定事件的时候方法不被执行，循环绑定三次后页面才能加载完成，此时索引i已经是3了，所以当用户看见页面后去点击时，绑定事件内传递的i是3而不是0,1,2。
+         *   解决方法，1.自定义属性：再给每个LI绑定事件之前，我们给每一个LI设置一个自定义属性 ES5
+         *            2.使用let创建变量 ES6
+         *            3.使用自执行函数(闭包)
+         *          for (var i = 0; i < navList.length; i++) {
+                        navList[i].onclick = (function () {
+                            return function () {
+                                changeTab(i);
+                            }
+                        })(i);
+                    }
+         */
+
+        for (var i = 0; i < navList.length; i++) {
+            navList[i].myIndex = i;
+            navList[i].onclick = function () {
+                //this是当前点击的这个元素，this.myIndex获取的就是之前绑定在元素自定义属性上的值
+                changeTab(this.myIndex);
+            }
+        }
+        //将点击事件中的内容封装成一个函数
+        //创建函数时不知道点的是谁，所以定义一个形参clickIndex来存储这一项索引
+        function changeTab(clickIndex) {
+            //1.清除li和div中的active
+            for (var i = 0; i < navList.length; i++) {
+                navList[i].className = '';
+                tabList[i].className = ''; //div的数量与li一致所以才能写在一起
+            }
+            //2.点击的是谁就给谁加active
+            navList[clickIndex].className = 'active';
+            tabList[clickIndex].className = 'active';
         }
     </script>
 </body>
