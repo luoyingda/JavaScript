@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- IMPORT CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        button {
+            margin: 35px auto;
+            padding: 50px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body style="background-color: white;">
+    <button id="changeBtn">点击变色 红->蓝->白</button>
+    <!-- IMPORT JS -->
+    <script>
+        let body = document.body;
+        let changeBtn = document.getElementById('changeBtn');
+        // 使用数组来获取背景颜色
+        let i = 0;
+        let colorAry = ['white', 'pink', 'lightblue', 'rgba(250,145,145)', 'orange', '#999'];
+        changeBtn.onclick = function () {
+            i++; //=>ary[i] 每一次点击基于累加后的I作为索引，从数组中拿到不同颜色样式值
+            i > colorAry.length - 1 ? i = 0 : null; //如果索引累加后比数组最大的索引值都要大，我们让其从零开始即可
+            body.style.backgroundColor = colorAry[i];
+        }
+        // changeBtn.onclick = function () {
+        //     let bgColor = body.style.backgroundColor; //
+        //     switch (bgColor) {
+        //         case 'white':
+        //             body.style.backgroundColor = 'red';
+        //             break;
+        //         case 'red':
+        //             body.style.backgroundColor = 'blue';
+        //             break;
+        //         default:
+        //             body.style.backgroundColor = 'white';
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
