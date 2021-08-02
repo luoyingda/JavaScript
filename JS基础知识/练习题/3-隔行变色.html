@@ -80,20 +80,40 @@
         //     }
         // }
 
-        //思考题：如何在离开的时候知道原来的颜色? 解决方法
-        let newsBox = document.getElementById('newsBox');
-        let newsList = document.getElementsByTagName('li');
-        //创建变量存储原来的颜色
-        let col = null;
-        for (let index = 0; index < newsList.length; index++) {
-            let currentLi = newsList[index];
-            currentLi.style.backgroundColor = index % 2 === 0 ? '#FFF' : '#DDD';
-            currentLi.onmouseover = function () {
+        // //思考题：如何在离开的时候知道原来的颜色? 解决方法
+        // let newsBox = document.getElementById('newsBox');
+        // let newsList = document.getElementsByTagName('li');
+        // //创建变量存储原来的颜色
+        // let col = null;
+        // for (let index = 0; index < newsList.length; index++) {
+        //     let currentLi = newsList[index];
+        //     currentLi.style.backgroundColor = index % 2 === 0 ? '#FFF' : '#DDD';
+        //     currentLi.onmouseover = function () {
+        //         this.style.backgroundColor = 'lightblue';
+        //     }
+        //     currentLi.onmouseout = function () {
+
+        //         this.style.backgroundColor = '#FFF';
+        //     }
+        // }
+
+        let box = document.getElementById('newBox');
+        let boxList = box.getElementsByTagName('li');
+        /**
+         *  自定义属性编程思想：
+         *      前期把一些值存储到元素的自定义属性上，后期需要用到的时候直接从属性上获取这些值即可
+         */
+        let myIndex;
+        for (let i = 0; i < boxList.length; i++) {
+            let bg = i % 2 === 0 ? 'white' : 'pink';
+            boxList[i].style.backgroundColor = bg; //设置不需要元素有样式
+            //设置自定义属性myOriginBg用来存储每一个LI的背景颜色
+            boxList[i].myOriginBg = bg;
+            boxList[i].onmouseover = function () {
                 this.style.backgroundColor = 'lightblue';
             }
-            currentLi.onmouseout = function () {
-                
-                this.style.backgroundColor = '#FFF';
+            boxList[i].onmouseout = function () {
+                this.style.backgroundColor = this.myOriginBg;
             }
         }
     </script>
