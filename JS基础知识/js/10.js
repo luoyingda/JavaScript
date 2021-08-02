@@ -35,3 +35,4 @@ for (var key in obj) {
     console.log('属性名' + key + '属性值' + obj[key]);
 }
 
+//for in在遍历的时候，优先循环数字属性名（从小到大）
