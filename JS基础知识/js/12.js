@@ -50,5 +50,6 @@ let sum = (n = 0, m = 0) => n + m;
     eval(arg.join('+'));
 } */
 
+//箭头函数中没有arguments，但是有...剩余运算符  ...arg中的arg是变量名可以随便写最好是写arg
 let sum = (...arg) => eval(arg.join('+'));
 
