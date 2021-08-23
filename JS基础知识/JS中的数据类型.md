@@ -126,7 +126,12 @@ Math.round(Math.random()*(m-n)+n)
 //思考：这种克隆叫做浅克隆，深克隆怎么处理
 ```
 - concat
-
+3. **把数组转换为字符串**
+> 原有数组不变
+- toString
+- join
+4. **验证数组中是否包含某一项**
+-indexOf / lastIndexOf / includes
 
 
 ## 函数 function `9.js`

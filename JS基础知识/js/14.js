@@ -215,4 +215,64 @@ console.log(res7);// []
  *      拼接后的新数组（原数组不变）
  */
 
+let ary8 = [10, 20, 30];
+let ary9 = [40, 50];
+let res8 = ary8.concat('珠峰培训', ary9);
+console.log(res8);
 
+
+/**
+ * toString：把数组转换为字符串
+ * @params
+ * @return
+ *      转换后的字符串,每一项用逗号分隔（原数组不变）
+ */
+let ary10 = [10, 20, 30];
+let res10 = ary10.toString();
+console.log(res10);
+console.log([].toString);
+console.log([12].toString());
+
+/**
+* join：把数组转换为字符串
+* @params
+*      指定的分隔符（字符串格式）
+* @return
+*      转换后的字符串,每一项用逗号分隔（原数组不变）
+*/
+let ary11 = [10, 20, 30];
+let res11 = ary11.join('');
+console.log(res11);
+
+res11 = ary11.join();
+console.log(res11);
+
+res11 = ary11.join('|');
+console.log(res11);
+
+//数组中的数字求和
+
+res11 = ary11.join('+');
+console.log(res11);//=>'10+20+30'
+console.log(eval(res11));//=>60 eval吧字符串变为JS表达式执行
+
+
+/**
+* indexOf / lastIndexOf：检测当前项在数组中第一次出现或者最后一次出现位置的索引值(在IE6~8中不兼容)
+* @params
+*      要检索的这一项内容
+* @return
+*      这一项出现的位置索引值（数字），如果数组中没有这一项，返回结果是-1
+*/
+let ary12 = [10, 20, 30, 10, 20, 30];
+console.log(ary12.indexOf(20));
+console.log(ary12.lastIndexOf(20));
+
+//想验证数组中是否包含某一项
+if (ary12.indexOf('珠峰培训') === -1) {
+    //不包含
+}
+//也可以使用ES6中的includes
+if(ary12.includes('珠峰培训')){
+    //包含：如果存在返回的是TRUE
+}
