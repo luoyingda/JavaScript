@@ -131,7 +131,23 @@ Math.round(Math.random()*(m-n)+n)
 - toString
 - join
 4. **验证数组中是否包含某一项**
--indexOf / lastIndexOf / includes
+- indexOf / lastIndexOf / includes
+5. **数组的排序或者排列**
+> 这几种方法会改变原数组
+- reverse
+- sort
+6. **遍历数组中每一项的方法 `重中之重`**
+- forEach
+- map
+- filter
+- find
+- reduce
+- some
+- every
+
+#### 数组有关的案例
+1. 数组去重 `15.js`
+   - 数组塌陷问题
 
 
 ## 函数 function `9.js`

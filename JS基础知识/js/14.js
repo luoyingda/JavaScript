@@ -273,6 +273,59 @@ if (ary12.indexOf('珠峰培训') === -1) {
     //不包含
 }
 //也可以使用ES6中的includes
-if(ary12.includes('珠峰培训')){
+if (ary12.includes('珠峰培训')) {
     //包含：如果存在返回的是TRUE
 }
+
+/**
+* reverse：把数组倒过来排列
+* @params
+* @return
+*      排列后的新数组
+* 原来数组改变
+*/
+let ary13 = [10, 5, 30, 26, 20];
+ary13.reverse();
+console.log(ary13);
+
+/**
+* sort：实现数组的排序
+* @params
+*      可以没有，也可以是个函数
+* @return
+*      排序后的新数组
+* 原来数组改变
+*/
+
+let ary14 = [7, 8, 5, 2, 4, 6, 9]
+ary14.sort();
+console.log(ary14);// => [2, 4, 5, 6, 7, 8, 9]
+//sort方法中如果不传递参数，是无法处理10以上的数字排序的（它默认都是按照第一个字符来排，不是我们想要的结果），想要实现多位数正常排序，需要给sort传递一个函数，函数中返回a - b:由小到大升序  b - a：由大到小降序 
+//a和b是相邻的两项
+ary13.sort((a, b) => a - b);
+console.log(ary13);// =>[10, 30, 5]
+
+/**
+* forEach：遍历数组中的每一项内容
+* @params
+*      回调函数
+* @return
+*    
+* 原来数组不变
+*/
+
+let ary15 = [7, 8, 5, 2, 4, 6, 9];
+//基于原生JS中的循环可以实现
+for (let i = 0; i < ary15.length; i++) {
+    // i：当前循环这一项的索引
+    //ary[i]：根据索引获取循环的这一项
+    console.log('索引' + i + '内容' + ary[i]);
+}
+
+ary15.forEach((item, index) => {
+    //数组中有几项，函数就会被默认执行几次
+    // 每一次执行函数：item是数组中当前要操作的这一项，index是当前数组的索引
+    console.log('索引' + i + '内容' + ary[i]);
+});
+
+
