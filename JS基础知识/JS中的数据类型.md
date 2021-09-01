@@ -148,8 +148,9 @@ Math.round(Math.random()*(m-n)+n)
 #### 数组有关的案例
 1. 数组去重 `15.js`
    - 数组塌陷问题
-
-
+#### 字符串中常用的方法
+1. charAt(n) / charCodeAt(n)
+2. substr(n,m) / substring(n,m) / slice(n,m)
 
 
 ## 函数 function `9.js`

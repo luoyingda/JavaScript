@@ -1,3 +1,11 @@
+/* 
+    每一个字符串都是由零到多个字符串组成的
+    str.length  字符串长度
+    str[0] 获取索引为零（第一个）的字符
+    str[str.length-1] 获取最后一个字符，str.length-1是最后一项的索引
+    str[100000] undefined 不存在这个索引
+    获取每一个字符应该使用“循环”
+*/
 let a = 12;
 console.log(a.toString()); //=>'12'
 console.log((NaN).toString()); //=>'NaN'

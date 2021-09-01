@@ -65,7 +65,7 @@ for (let i = 0; i < ary.length; i++) {
  *  2. 循环数组中的每一项，把每一项向对象中进行存储 => item=item
  *  3. 每次存储之前进行判断：验证obj中是否包含这一项
 */
-let obj = {};
+/* let obj = {};
 for (let i = 0; i < ary.length; i++) {
     let item = ary[i];
     if (obj[item] !== undefined) {
@@ -75,14 +75,14 @@ for (let i = 0; i < ary.length; i++) {
         continue;
     }
     obj[item] = item;
-}
+} */
 
 
 //============第四种==============
 /**
  *  常用的一种数组去重，可以封装为方法。
  */
-let obj = {};
+/* let obj = {};
 for (let i = 0; i < ary.length; i++) {
     let item = ary[i];
     if (obj[item] !== undefined) {
@@ -93,9 +93,30 @@ for (let i = 0; i < ary.length; i++) {
         continue;
     }
     obj[item] = item;
-}
+} */
+
+//===========第五种================
+/**
+ *  基于ES6中的Set（对应的Map）实现去重
+ */
+/* ary = [...new Set(ary)];
+console.log(ary); */
 
 
+//==============第六种=============
+/**
+ *  使用正则表达式实现去重
+ */
+ary=[12,12,32,33,33,54,54,11,32]
+ary.sort((a, b) => a - b);
+let str = ary.join('@') + '@';
+let reg = /(\d+@)\1*/g;
+ary = [];
+str.replace(reg, (n, m) => {
+    m = Number(m.slice(0, m.length - 1));
+    ary.push(m);
+});
+console.log(ary);
 
 
 
