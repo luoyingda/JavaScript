@@ -151,8 +151,10 @@ Math.round(Math.random()*(m-n)+n)
 #### 字符串中常用的方法
 1. charAt(n) / charCodeAt(n)
 2. substr(n,m) / substring(n,m) / slice(n,m)
-
-
+3. indexof / lastndexOf / includes
+4. toUpperCase / toLowerCase
+5. split([分隔符])
+6. replace
 ## 函数 function `9.js`
 > 函数就是一个方法或者一个功能体，函数就是把实现某个功能的代码放到一起进行分装，以后想要操作实现这个功能，只需要把函数执行即可=>'封装'：减少页面中冗余代码，提高代码重复使用率（低耦合高内聚）
 

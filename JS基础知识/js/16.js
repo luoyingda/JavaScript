@@ -37,3 +37,56 @@ console.log(str.substring(3, 7)); //=> 'ying'
 console.log(str.slice(3, 7)); //=> 'ying'
 console.log(str.substring(-7, -3)); //=> ' ' substring不支持负数索引
 console.log(str.slice(-7, -3)); //=> 'ikey'  slice支持负数索引 快捷查找：负数索引，我们按照str.length + 负索引的方式找 => slice(17-7,17-3) =>slice(10,14)
+
+/*
+ *  验证字符是否存在
+ *      indexOf(x,y)：x是字符串，y是数字 获取X第一次出现位置的索引，y是控制查找的起始位置索引
+ *      lastIndexOf(x):x是字符串 最后一次出现位置的索引
+ * => 以上两种方法，没有该字符时，返回的结果是 -1 
+ * 
+ */
+//str = 'luoyingdanikeyide';
+console.log(str.indexOf('n')); //=> 5
+console.log(str.lastIndexOf('n')); //=> 9
+console.log(str.indexOf('@')); //=> -1 字符不存在返回-1
+if (str.indexOf('@') === -1) {
+    // 字符串中不包含@这个字符
+}
+
+console.log(str.indexOf('n', 7)); //=>9  查找字符串索引7及之后的字符串中，n第一次出现位置的索引
+if (!str.includes('@')) {
+    console.log('当前字符串中不包含@');
+}
+
+/*
+ *  字符串中字母的大小写转换
+ *      toUpperCase()：转大写
+ *      toLowerCase()：转小写
+ */
+//str = 'luoyingdanikeyide'; 
+str = str.toUpperCase();
+console.log(str); //=> 'LUOYINGDANIKEYIDE'
+str = str.toLowerCase();
+console.log(str); //=> 'luoyingdanikeyide'
+
+
+/*
+ * split([分隔符])：把字符串按照指定的分隔符拆分成数组（和数组中的join对应）
+ * split支持传递正则表达式
+ */
+
+// 需求：把|分隔符变为,分隔符
+let str1 = 'luo|ying|da';
+str1 = str1.split('|');
+console.log(str1);
+str1 = str1.join(',');
+console.log(str1);
+
+/**
+ *  replace(老字符，新字符)：实现字符串的替换
+ */
+let str2 = '哈哈@呵呵@嘿嘿';
+str2 = str2.replace('@', '-');
+console.log(str2); //哈哈-呵呵@嘿嘿 在不使用正则表达式的情况下执行一次replace只能替换一次字符
+str2 = str2.replace(/@/g, '-');
+console.log(str2);//=>哈哈-呵呵-嘿嘿
