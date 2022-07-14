@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>总价格：{{totalPrice}}</h2>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        books: [
+          { id: 110, name: 'Unix编程艺术', price: 119 },
+          { id: 110, name: '深入理解计算机原理', price: 119 },
+          { id: 112, name: '代码大全', price: 105 },
+          { id: 112, name: '现代操作系统', price: 89 }
+        ]
+      },
+      //计算属性和methods的区别：计算属性在多次调用时只会调用一次，methods是你调用几次就执行几次（无缓存，性能更低）
+      methods: {
+
+      },
+      computed: {
+        // filter/map/reduce
+        totalPrice: function () {
+          let result = 0
+          for (let i = 0; i < this.books.length; i++) {
+            result += this.books[i].price
+          }
+          return result
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

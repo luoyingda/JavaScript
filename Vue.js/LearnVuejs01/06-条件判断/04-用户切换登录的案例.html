@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <span v-if=isShow>
+      <label for="username">用户昵称</label>
+      <input type="text" id="username" placeholder="用户昵称">
+    </span>
+    <span v-else>
+      <label for="useremail">用户邮箱</label>
+      <input type="text" id="useremail" placeholder="用户邮箱">
+    </span>
+    <button @click="changeLabel()">切换登录</button>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isShow: true
+      },
+      methods: {
+        changeLabel() {
+          this.isShow = !this.isShow
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
