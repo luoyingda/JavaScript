@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{message}}</h1>
+    <ul>
+      <li v-for="value in liLists">{{value}}</li>
+      <li v-for="(item,index) in liList">{{index}}--{{item}}</li>
+      <li v-for="value in liLists1">{{value.title}}</li>
+    </ul>
+  </div>
+
+  <script src="../练习/js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World',
+        liList: ['火影忍者', '海贼王', '犬夜叉'],
+        liLists: {
+          title1: '我是要成为火影的人，怎么可以在这里倒下',
+          title2: '我是要成为海贼王的男人',
+          title3: '戈薇！'
+        },
+        liLists1: [
+          { title: '我是要成为火影的人，怎么可以在这里倒下' },
+          { title: '我是要成为海贼王的男人' },
+          { title: '戈薇！' }
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>
