@@ -11,11 +11,20 @@
 <body>
   <div id="app">
     <!-- 1.选择一个 -->
-    <select name="abc" id="">
+    <select name="abc" v-model="fruit">
       <option value="苹果">苹果</option>
       <option value="香蕉">香蕉</option>
       <option value="芒果">芒果</option>
     </select>
+    <h2>您选择的水果是：{{fruit}}</h2>
+
+    <!-- 2.选择多个 -->
+    <select name="abc" v-model="fruits" multiple>
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="芒果">芒果</option>
+    </select>
+    <h2>您选择的水果是：{{fruit}}</h2>
   </div>
 
   <script src="../js/vue.js"></script>
@@ -23,7 +32,8 @@
     const app = new Vue({
       el: '#app',
       data: {
-        
+        fruit: '香蕉',
+        fruits: []
       }
     })
   </script>
