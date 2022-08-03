@@ -12,21 +12,5 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"Print to console": {
-		"prefix": "vue",
-		"body": [
-			"<div id=\"app\">",
-			"</div> \n",
-			"<script src=\"../js/vue.js\"></script>",
-			"<script>",
-			"\tconst app = new Vue({",
-			"\t\tel: '#app',",
-			"\t\tdata: {",
-			"\t\t\tmessage: '你好啊'",
-			"\t\t}",
-			"\t})",
-			"</script>",
-		],
-		"description": "Log output to console"
-	}
+	
 }
