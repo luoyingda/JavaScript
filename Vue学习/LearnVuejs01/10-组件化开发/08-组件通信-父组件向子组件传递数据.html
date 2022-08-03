@@ -10,15 +10,64 @@
 
 <body>
   <div id="app">
-    <h2>{{message}}</h2>
+    <!-- <cpn :cmovies="movies" :cmessage="message"></cpn> -->
+    <!-- <cpn cmovies="movies" cmessage="message"></cpn> -->
+    <cpn :cmessage="message"></cpn>
   </div>
+
+  <template id="cpn">
+    <div>
+      <ul>
+        <li v-for="item in cmovies">{{item}}</li>
+      </ul>
+      <h2>{{cmessage}}</h2>
+    </div>
+  </template>
 
   <script src="../js/vue.js"></script>
   <script>
+    // 子组件 父传子:props
+    const cpn = {
+      template: '#cpn',
+      //props: ['cmovies', 'cmessage'],
+      props: {
+        // 1.类型限制
+        // cmovies: Array,
+        // cmessage: String,
+
+        // 2.提供一些默认值，以及必传值
+        cmessage: {
+          type: String,
+          default: 'aaaaa',
+          required: true,
+        },
+        // 类型是对象或者数组时，默认值必须是一个函数
+        cmovies: {
+          type: Array,
+          default() {
+            return []
+          } // vue2.5.x一下不出错
+        }
+      },
+      data() {
+        return {
+
+        }
+      },
+      methods: {
+
+      },
+    }
+
+    // 根组件/父组件
     const app = new Vue({
       el: '#app',
       data: {
-        message: '你好啊'
+        message: '你好啊',
+        movies: ['火影忍者', '海贼王', '犬夜叉']
+      },
+      components: {
+        cpn
       }
     })
   </script>
