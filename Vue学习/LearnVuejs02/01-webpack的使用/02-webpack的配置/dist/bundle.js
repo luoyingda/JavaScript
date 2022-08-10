@@ -1,0 +1,1 @@
+(()=>{var o={359:o=>{o.exports={add:function(o,r){return o+r},mul:function(o,r){return o*r}}}},r={};function n(e){var t=r[e];if(void 0!==t)return t.exports;var s=r[e]={exports:{}};return o[e](s,s.exports,n),s.exports}(()=>{"use strict";const{add:o,mul:r}=n(359);console.log(o(10,20)),console.log(r(10,20)),console.log(18),console.log("LYD"),console.log("180cm")})()})();
