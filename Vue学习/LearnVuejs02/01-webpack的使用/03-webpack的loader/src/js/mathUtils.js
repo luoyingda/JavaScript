@@ -1,10 +1,6 @@
-function add(num1, num2) {
-  return num1 + num2
-}
-function mul(num1, num2) {
-  return num1 * num2
-}
+var add = (num1, num2) => num1 + num2
+var mul = (num1, num2) => num1 * num2
 
-module.exports = {
+export default {
   add, mul
 }

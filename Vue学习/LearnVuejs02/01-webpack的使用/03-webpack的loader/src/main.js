@@ -1,5 +1,5 @@
 // 1.CommonJs的模块化规范
-const { add, mul } = require('./js/mathUtils')
+const { add, mul } = require('./js/mathUtils').default
 
 console.log(add(10, 20));
 console.log(mul(10, 20));
@@ -15,3 +15,4 @@ require('./css/normal.css')
 // 4.依赖less文件
 require('./css/special.less')
 document.writeln('<h2>你好啊，李焕英！</h2>')
+
